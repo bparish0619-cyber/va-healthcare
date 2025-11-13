@@ -135,6 +135,7 @@
                 <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-5">
                     <h2 class="text-xl font-semibold mb-4 text-blue-900 dark:text-blue-200">Important Contacts & Resources</h2>
                     <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                        <li><strong>Find a VA Location or<br>Community Provider:</strong><br><a href="https://www.va.gov/find-locations/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">www.va.gov/find-locations</a></li>
                         <li><strong>My HealtheVet:</strong><br><a href="https://www.myhealth.va.gov" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">www.myhealth.va.gov</a></li>
                         <li><strong>Caregiver Support Line:</strong><br>855-260-3274</li>
                         <li><strong>Emergency Care Notification:</strong><br>844-724-7842 (within 72 hours)</li>
@@ -228,22 +229,36 @@
 
         const accordionData = [
             {
-                title: "General Copayment Reference (2025)",
+                title: "Urgent Care vs. Emergency Care: Where to Go",
                 content: `
-                    <p class="mb-2">This is a general guide. Your specific copays depend on your Priority Group and other factors.</p>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li><strong>Primary Care:</strong> $15 (Groups 7 & 8)</li>
-                        <li><strong>Specialty Care:</strong> $50 (Groups 7 & 8)</li>
-                        <li><strong>Inpatient Care:</strong> Groups 1-6 are generally $0. Groups 7 & 8 have daily copays.</li>
-                        <li><strong>Medications (30-day supply):</strong>
-                            <ul class="list-none list-inside ml-4">
-                                <li>Tier 1 (Preferred Generic): $5</li>
-                                <li>Tier 2 (Non-Preferred Generic): $8</li>
-                                <li>Tier 3 (Brand Name): $11</li>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-bold text-lg text-blue-800 dark:text-blue-300">Urgent Care</h4>
+                            <p class="mb-2">For minor, non-life-threatening illnesses or injuries.</p>
+                            <p class="font-semibold mb-1">Examples:</p>
+                            <ul class="list-disc list-inside text-sm space-y-1">
+                                <li>Cold, flu, cough, strep throat</li>
+                                <li>Sprains or strained muscles</li>
+                                <li>Minor cuts or skin rashes</li>
+                                <li>Ear and eye infections</li>
                             </ul>
-                            <p class="text-sm mt-1">*Group 1 pays $0. Groups 2-8 have a $700 annual cap.</p>
-                        </li>
-                    </ul>
+                            <p class="font-semibold mt-3 mb-1">What to do:</p>
+                            <p>Go to an <strong>in-network</strong> urgent care clinic. Use the link in the 'Important Contacts' panel to find one.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-red-700 dark:text-red-500">Emergency Care</h4>
+                            <p class="mb-2">For conditions that could be hazardous to your life or health.</p>
+                            <p class="font-semibold mb-1">Examples:</p>
+                            <ul class="list-disc list-inside text-sm space-y-1">
+                                <li>Severe chest pain or trouble breathing</li>
+                                <li>Heavy, uncontrolled bleeding</li>
+                                <li>Severe head injury or loss of consciousness</li>
+                                <li>Thoughts of suicide (Call 988, Press 1)</li>
+                            </ul>
+                            <p class="font-semibold mt-3 mb-1">What to do:</p>
+                            <p>Go to the <strong>nearest</strong> emergency department immediately or call 911. Notify VA at <strong>844-724-7842</strong> within 72 hours.</p>
+                        </div>
+                    </div>
                 `
             },
             {
@@ -265,7 +280,52 @@
                         <li><strong>Priority Groups 1-5:</strong> First 3 visits in a calendar year are $0. Fourth visit and beyond are $30 each.</li>
                         <li><strong>Priority Group 6:</strong> $0 for service-connected conditions (first 3 visits, then $30). $30 for all other care.</li>
                         <li><strong>Priority Groups 7-8:</strong> $30 per visit.</li>
-                        <li>Find an in-network urgent care provider on VA's location finder.</li>
+                        <li>Find an in-network urgent care provider using the link in the 'Important Contacts' panel.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Understanding Your Copayments",
+                content: `
+                    <p class="mb-3">Your copayments are based on your Priority Group and the type of service. Some Veterans are exempt from copayments.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Cost-Free Care:</strong> Many Veterans qualify for cost-free care for some or all services, including those with a 50%+ service-connected disability, former POWs, or Purple Heart recipients.</li>
+                        <li><strong>Medication Cap:</strong> For Veterans in Priority Groups 2-8, there is an annual cap of $700 on medication copayments. Once you reach this cap, you will not be charged for medications for the rest of the calendar year.</li>
+                        <li><strong>Financial Hardship:</strong> If you are unable to pay your copayments, VA offers options like repayment plans and waivers. Contact your local VA facility's billing office for help.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Getting Your Veteran Health ID Card (VHIC)",
+                content: `
+                    <p class="mb-3">The VHIC is used to prove your identity and to check in for appointments at VA health facilities. While not required to receive care, it is recommended.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>How to get one:</strong>
+                            <ul class="list-none list-inside ml-4">
+                                <li><strong>In Person:</strong> Visit your local VA health care facility. You must provide one form of valid photo ID (like a driver's license or passport).</li>
+                                <li><strong>Online:</strong> Apply through the VHIC self-service portal on the VA.gov website. This requires you to be logged in with ID.me, Login.gov, or a DS Logon.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Lost or Stolen:</strong> You can request a replacement card by phone, in person, or online.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "General Copayment Reference (2025)",
+                content: `
+                    <p class="mb-2">This is a general guide. Your specific copays depend on your Priority Group and other factors.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Primary Care:</strong> $15 (Groups 7 & 8)</li>
+                        <li><strong>Specialty Care:</strong> $50 (Groups 7 & 8)</li>
+                        <li><strong>Inpatient Care:</strong> Groups 1-6 are generally $0. Groups 7 & 8 have daily copays.</li>
+                        <li><strong>Medications (30-day supply):</strong>
+                            <ul class="list-none list-inside ml-4">
+                                <li>Tier 1 (Preferred Generic): $5</li>
+                                <li>Tier 2 (Non-Preferred Generic): $8</li>
+                                <li>Tier 3 (Brand Name): $11</li>
+                            </ul>
+                            <p class="text-sm mt-1">*Group 1 pays $0. Groups 2-8 have a $700 annual cap.</p>
+                        </li>
                     </ul>
                 `
             },
@@ -352,7 +412,7 @@
                 
                 accordionItem.innerHTML = `
                     <button class="flex justify-between items-center w-full p-4 text-left font-medium text-blue-800 dark:text-blue-300 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 focus:outline-none" data-index="${index}">
-                        <span>${item.title}</span>
+                        <span class="pr-2">${item.title}</span>
                         <svg class="w-5 h-5 shrink-0 transform rotate-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button>
                     <div class="p-4 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hidden">
@@ -382,7 +442,7 @@
                 }
             });
 
-        }); // <-- This closing tag was missing in your file
+        });
 
         // --- Dark Mode Toggle Function ---
         function toggleDarkMode() {
