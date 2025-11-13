@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VA Health Care Benefits Quick Guide (2025)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Support for dark mode
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Basic styling for the toggle */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #4A5568; /* dark:gray-700 */
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #4A5568; /* dark:gray-700 */
+        }
+        html.dark .toggle-checkbox:checked {
+            border-color: #D1D5DB; /* gray-300 */
+        }
+        html.dark .toggle-checkbox:checked + .toggle-label {
+            background-color: #D1D5DB; /* gray-300 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans antialiased transition-colors duration-300">
+
+    <!-- Header and Controls -->
+    <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-xl sm:text-2xl font-bold text-blue-800 dark:text-blue-300">VA Health Care Quick Guide (2025)</h1>
+            
+            <div class="flex items-center space-x-4">
+                <!-- Dark Mode Toggle -->
+                <div class="flex items-center">
+                    <span class="text-sm mr-2 dark:text-gray-400">Light</span>
+                    <div class="relative inline-block w-10 h-6 rounded-full cursor-pointer" onclick="toggleDarkMode()">
+                        <input id="dark-toggle" type="checkbox" class="absolute w-0 h-0 opacity-0 toggle-checkbox peer">
+                        <div class="block w-10 h-6 overflow-hidden bg-gray-300 rounded-full dark:bg-gray-700 toggle-label"></div>
+                        <div class="absolute left-0 top-0 inline-block w-6 h-6 bg-white dark:bg-gray-900 rounded-full shadow-lg transform transition-transform duration-200 ease-in-out peer-checked:translate-x-4" 
+                             style="transition: transform 0.2s ease-in-out;"></div>
+                    </div>
+                    <span class="text-sm ml-2 dark:text-gray-400">Dark</span>
+                </div>
+
+                <!-- Download Button -->
+                <button id="download-btn" class="text-sm bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg shadow transition-colors">
+                    Download HTML
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <!-- Left Column: Priority Groups & Copays -->
+            <div class="lg:col-span-2 space-y-6">
+                
+                <!-- Priority Group Lookup -->
+                <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+                    <div class="p-5">
+                        <h2 class="text-2xl font-semibold mb-4 text-blue-900 dark:text-blue-200">Priority Group Benefits & Copays</h2>
+                        <p class="mb-4 text-gray-700 dark:text-gray-300">Select your VA Priority Group to see your general copayment responsibilities. This data is based on the 2025 guide and may not cover all exceptions.</p>
+                        
+                        <select id="priority-group-select" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="select">-- Select Your Priority Group --</option>
+                            <option value="1">Priority Group 1</option>
+                            <option value="2">Priority Group 2</option>
+                            <option value="3">Priority Group 3</option>
+                            <option value="4">Priority Group 4</option>
+                            <option value="5">Priority Group 5</option>
+                            <option value="6">Priority Group 6</option>
+                            <option value="7">Priority Group 7</option>
+                            <option value="8">Priority Group 8</option>
+                        </select>
+                        
+                        <div id="priority-group-info" class="mt-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg" style="display: none;">
+                            <!-- JS will populate this -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Services Accordion -->
+                <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+                    <div class="p-5">
+                        <h2 class="text-2xl font-semibold mb-4 text-blue-900 dark:text-blue-200">Key Services & Programs</h2>
+                        
+                        <div class="space-y-4" id="accordion-container">
+                            <!-- JS will populate accordions here -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Key Contacts & Enrollment -->
+            <div class="space-y-6">
+                <!-- VETERANS CRISIS LINE -->
+                <div class="bg-red-700 dark:bg-red-800 text-white p-6 rounded-lg shadow-lg text-center">
+                    <h2 class="text-2xl font-bold mb-3">Veterans Crisis Line</h2>
+                    <p class="text-lg mb-4">Confidential support 24/7</p>
+                    <p class="text-3xl font-extrabold mb-2">Dial 988 <span class="font-normal">then</span> PRESS 1</p>
+                    <p class="text-xl font-semibold mb-2">Text: 838255</p>
+                    <p class="text-xl font-semibold">Chat: VeteransCrisisLine.net/Chat</p>
+                </div>
+
+                <!-- How to Enroll -->
+                <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-5">
+                    <h2 class="text-xl font-semibold mb-4 text-blue-900 dark:text-blue-200">How to Enroll in VA Health Care</h2>
+                    <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                        <li><strong>Online:</strong> <a href="https://www.va.gov/health-care/apply/application/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">www.va.gov/health-care/apply</a></li>
+                        <li><strong>By Phone:</strong> 877-222-VETS (8387)</li>
+                        <li><strong>By Mail:</strong> Mail VA Form 10-10EZ to:<br><span class="pl-2 block">Health Eligibility Center<br>PO Box 5207<br>Janesville, WI 53547-5207</span></li>
+                        <li><strong>In Person:</strong> At any VA health care facility.</li>
+                    </ul>
+                </div>
+
+                <!-- Other Important Contacts -->
+                <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-5">
+                    <h2 class="text-xl font-semibold mb-4 text-blue-900 dark:text-blue-200">Important Contacts & Resources</h2>
+                    <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                        <li><strong>My HealtheVet:</strong><br><a href="https://www.myhealth.va.gov" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">www.myhealth.va.gov</a></li>
+                        <li><strong>Caregiver Support Line:</strong><br>855-260-3274</li>
+                        <li><strong>Emergency Care Notification:</strong><br>844-724-7842 (within 72 hours)</li>
+                        <li><strong>Foreign Medical Program (FMP):</strong><br>877-345-8179</li>
+                        <li><strong>VA Dental Insurance (VADIP):</strong><br>Delta Dental: 855-460-3302<br>MetLife: 888-310-1681</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        // --- Data from 2025 Handbook ---
+
+        const priorityGroupData = {
+            "1": {
+                who: "Veterans with 50% or more service-connected disability, or unemployable due to service-connected conditions.",
+                copays: {
+                    outpatient: "$0",
+                    inpatient: "$0",
+                    medication: "$0",
+                    urgentCare: "$0"
+                }
+            },
+            "2": {
+                who: "Veterans with 30% or 40% service-connected disability.",
+                copays: {
+                    outpatient: "$0",
+                    inpatient: "$0",
+                    medication: "Tiered copays may apply. ($5/$8/$11 for 30-day supply). $700 annual cap.",
+                    urgentCare: "First 3 visits: $0. Subsequent: $30."
+                }
+            },
+            "3": {
+                who: "Former POWs, Purple Heart recipients, Veterans with 10% or 20% service-connected disability.",
+                copays: {
+                    outpatient: "$0",
+                    inpatient: "$0",
+                    medication: "Tiered copays may apply. ($5/$8/$11 for 30-day supply). $700 annual cap.",
+                    urgentCare: "First 3 visits: $0. Subsequent: $30."
+                }
+            },
+            "4": {
+                who: "Veterans receiving Aid & Attendance or Housebound benefits, or determined to be Catastrophically Disabled.",
+                copays: {
+                    outpatient: "$0",
+                    inpatient: "$0",
+                    medication: "Tiered copays may apply. ($5/$8/$11 for 30-day supply). $700 annual cap.",
+                    urgentCare: "First 3 visits: $0. Subsequent: $30."
+                }
+            },
+            "5": {
+                who: "Veterans with household income below VA's limits, receiving VA pension, or eligible for Medicaid.",
+                copays: {
+                    outpatient: "$0",
+                    inpatient: "$0",
+                    medication: "Tiered copays may apply. ($5/$8/$11 for 30-day supply). $700 annual cap.",
+                    urgentCare: "First 3 visits: $0. Subsequent: $30."
+                }
+            },
+            "6": {
+                who: "Veterans with 0% compensable service-connected disability, or exposed to radiation, herbicides (Vietnam), or other toxic substances (e.g., PACT Act, Camp Lejeune).",
+                copays: {
+                    outpatient: "$0",
+                    inpatient: "$0",
+                    medication: "Tiered copays may apply. ($5/$8/$11 for 30-day supply). $700 annual cap.",
+                    urgentCare: "For service-connected conditions: First 3 visits $0, then $30. For all other care: $30 per visit."
+                }
+            },
+            "7": {
+                who: "Veterans with gross household income below the geographic income limit for their residence.",
+                copays: {
+                    outpatient: "Primary Care: $15<br>Specialty Care: $50",
+                    inpatient: "Reduced rate copay applies + $2/day.",
+                    medication: "Tiered copays apply. ($5/$8/$11 for 30-day supply). $700 annual cap.",
+                    urgentCare: "$30 per visit."
+                }
+            },
+            "8": {
+                who: "Veterans with gross household incomes above VA and geographic income limits.",
+                copays: {
+                    outpatient: "Primary Care: $15<br>Specialty Care: $50",
+                    inpatient: "Full rate copay applies + $10/day.",
+                    medication: "Tiered copays apply. ($5/$8/$11 for 30-day supply). $700 annual cap.",
+                    urgentCare: "$30 per visit."
+                }
+            }
+        };
+
+        const accordionData = [
+            {
+                title: "General Copayment Reference (2025)",
+                content: `
+                    <p class="mb-2">This is a general guide. Your specific copays depend on your Priority Group and other factors.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Primary Care:</strong> $15 (Groups 7 & 8)</li>
+                        <li><strong>Specialty Care:</strong> $50 (Groups 7 & 8)</li>
+                        <li><strong>Inpatient Care:</strong> Groups 1-6 are generally $0. Groups 7 & 8 have daily copays.</li>
+                        <li><strong>Medications (30-day supply):</strong>
+                            <ul class="list-none list-inside ml-4">
+                                <li>Tier 1 (Preferred Generic): $5</li>
+                                <li>Tier 2 (Non-Preferred Generic): $8</li>
+                                <li>Tier 3 (Brand Name): $11</li>
+                            </ul>
+                            <p class="text-sm mt-1">*Group 1 pays $0. Groups 2-8 have a $700 annual cap.</p>
+                        </li>
+                    </ul>
+                `
+            },
+            {
+                title: "Emergency Care (Community)",
+                content: `
+                    <p class="mb-2">For a medical or mental health emergency, go to the nearest emergency department without delay.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Notify VA:</strong> You or someone else must notify VA within <strong>72 hours</strong> of the start of care.</li>
+                        <li><strong>Notification Line:</strong> 844-72HRVHA (844-724-7842)</li>
+                        <li>VA may pay for the care if you are enrolled, eligible, and VA was notified properly.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Urgent Care (Community)",
+                content: `
+                    <p class="mb-2">For minor, non-life-threatening injuries and illnesses. Must be enrolled and have used VA care within the last 24 months.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Priority Groups 1-5:</strong> First 3 visits in a calendar year are $0. Fourth visit and beyond are $30 each.</li>
+                        <li><strong>Priority Group 6:</strong> $0 for service-connected conditions (first 3 visits, then $30). $30 for all other care.</li>
+                        <li><strong>Priority Groups 7-8:</strong> $30 per visit.</li>
+                        <li>Find an in-network urgent care provider on VA's location finder.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Camp Lejeune & PACT Act",
+                content: `
+                    <p class="mb-2"><strong>PACT Act:</strong> Expands and extends eligibility for Veterans exposed to burn pits, Agent Orange, and other toxic substances. Veterans with qualifying service may be placed in Priority Group 6.</p>
+                    <p><strong>Camp Lejeune:</strong> Veterans who served at least 30 days at Camp Lejeune (Aug 1, 1953 - Dec 31, 1987) may be eligible for cost-free care for 15 specific conditions and are placed in Priority Group 6. Family members may also be eligible for reimbursement.</p>
+                `
+            }
+        ];
+
+        // --- JavaScript Functionality ---
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Dark Mode ---
+            const toggle = document.getElementById('dark-toggle');
+            
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                toggle.checked = true;
+            } else {
+                document.documentElement.classList.remove('dark');
+                toggle.checked = false;
+            }
+
+            // --- Download Button ---
+            document.getElementById('download-btn').addEventListener('click', function() {
+                const htmlContent = document.documentElement.outerHTML;
+                const blob = new Blob([htmlContent], { type: 'text/html' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'va_benefits_guide.html';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(a.href);
+            });
+
+            // --- Priority Group Lookup ---
+            const select = document.getElementById('priority-group-select');
+            const infoBox = document.getElementById('priority-group-info');
+            
+            select.addEventListener('change', function() {
+                const group = this.value;
+                if (group === 'select') {
+                    infoBox.style.display = 'none';
+                    return;
+                }
+                
+                const data = priorityGroupData[group];
+                infoBox.innerHTML = `
+                    <h3 class="text-xl font-bold mb-3 text-blue-800 dark:text-blue-300">Priority Group ${group}</h3>
+                    <p class="mb-4"><strong>Who's in this group:</strong> ${data.who}</p>
+                    <h4 class="text-lg font-semibold mb-2">General Copayments:</h4>
+                    <table class="w-full text-left">
+                        <tr class="border-b dark:border-gray-600">
+                            <td class="py-2 pr-2 font-medium w-1/3">Outpatient Care:</td>
+                            <td class="py-2">${data.copays.outpatient}</td>
+                        </tr>
+                        <tr class="border-b dark:border-gray-600">
+                            <td class="py-2 pr-2 font-medium">Inpatient Care:</td>
+                            <td class="py-2">${data.copays.inpatient}</td>
+                        </tr>
+                        <tr class="border-b dark:border-gray-600">
+                            <td class="py-2 pr-2 font-medium">Medications:</td>
+                            <td class="py-2">${data.copays.medication}</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 pr-2 font-medium">Urgent Care:</td>
+                            <td class="py-2">${data.copays.urgentCare}</td>
+                        </tr>
+                    </table>
+                `;
+                infoBox.style.display = 'block';
+            });
+
+            // --- Accordion Builder ---
+            const accordionContainer = document.getElementById('accordion-container');
+            accordionData.forEach((item, index) => {
+                const accordionItem = document.createElement('div');
+                accordionItem.className = 'border border-gray-200 dark:border-gray-700 rounded-lg';
+                
+                accordionItem.innerHTML = `
+                    <button class="flex justify-between items-center w-full p-4 text-left font-medium text-blue-800 dark:text-blue-300 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 focus:outline-none" data-index="${index}">
+                        <span>${item.title}</span>
+                        <svg class="w-5 h-5 shrink-0 transform rotate-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                    <div class="p-4 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hidden">
+                        ${item.content}
+                    </div>
+                `;
+                
+                accordionContainer.appendChild(accordionItem);
+            });
+
+            // Accordion click listener
+            accordionContainer.addEventListener('click', function(e) {
+                const button = e.target.closest('button');
+                if (!button) return;
+                
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('svg');
+                
+                const isHidden = content.classList.contains('hidden');
+                
+                if (isHidden) {
+                    content.classList.remove('hidden');
+                    icon.classList.add('rotate-180');
+                } else {
+                    content.classList.add('hidden');
+                    icon.classList.remove('rotate-180');
+                }
+            });
+
+        }); // <-- This closing tag was missing in your file
+
+        // --- Dark Mode Toggle Function ---
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const toggle = document.getElementById('dark-toggle');
+
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                toggle.checked = false;
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                toggle.checked = true;
+            }
+        }
+    </script>
+</body>
+</html>
