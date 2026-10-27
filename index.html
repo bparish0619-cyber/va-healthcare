@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VA Health Care Benefits Quick Guide (2025)</title>
+    <title>VA Health Care Benefits Quick Guide (2026)</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -41,7 +41,7 @@
     <!-- Header and Controls -->
     <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-10">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <h1 class="text-xl sm:text-2xl font-bold text-blue-800 dark:text-blue-300">VA Health Care Quick Guide (2025)</h1>
+            <h1 class="text-xl sm:text-2xl font-bold text-blue-800 dark:text-blue-300">VA Health Care Quick Guide (2026)</h1>
             
             <div class="flex items-center space-x-4">
                 <!-- Dark Mode Toggle -->
@@ -76,7 +76,7 @@
                 <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
                     <div class="p-5">
                         <h2 class="text-2xl font-semibold mb-4 text-blue-900 dark:text-blue-200">Priority Group Benefits & Copays</h2>
-                        <p class="mb-4 text-gray-700 dark:text-gray-300">Select your VA Priority Group to see your general copayment responsibilities. This data is based on the 2025 guide and may not cover all exceptions.</p>
+                        <p class="mb-4 text-gray-700 dark:text-gray-300">Select your VA Priority Group to see your general copayment responsibilities. This data is based on VA's published copay rates for 2026 and may not cover all exceptions.</p>
                         
                         <select id="priority-group-select" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="select">-- Select Your Priority Group --</option>
@@ -150,7 +150,7 @@
     </main>
 
     <script>
-        // --- Data from 2025 Handbook ---
+        // --- Copay data: VA published rates, verified unchanged for 2026 (Oct 2026) ---
 
         const priorityGroupData = {
             "1": {
@@ -311,7 +311,7 @@
                 `
             },
             {
-                title: "General Copayment Reference (2025)",
+                title: "General Copayment Reference (2026)",
                 content: `
                     <p class="mb-2">This is a general guide. Your specific copays depend on your Priority Group and other factors.</p>
                     <ul class="list-disc list-inside space-y-2">
@@ -460,5 +460,14 @@
             }
         }
     </script>
+    <!-- ============================================================
+         FOOTER (added 2026-10-27): Northbrand Collective line.
+         Edit the text here to change what the footer says.
+         ============================================================ -->
+    <footer class="container mx-auto px-4 sm:px-6 lg:px-8 pb-8 pt-2 text-center text-sm text-gray-500 dark:text-gray-400">
+        <p>A <strong>Northbrand Collective</strong> project &middot; <a href="https://northbrand.net" class="underline hover:text-blue-600 dark:hover:text-blue-300">northbrand.net</a></p>
+        <p class="mt-1">Copay rates verified against VA.gov for 2026. Unofficial guide, not a VA publication. Confirm your own copays with VA at 877-222-8387.</p>
+    </footer>
+
 </body>
 </html>
